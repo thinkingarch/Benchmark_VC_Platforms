@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Agentic Investor: 2025 Strategic Report</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --accent-glow: #60a5fa;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --bg: #020617;
+            --card-bg: #1e293b;
+            --border: #334155;
+            --success: #10b981;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+
+        /* Typography */
+        h1, h2, h3 { color: #fff; font-weight: 700; letter-spacing: -0.025em; }
+        h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 1rem; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        h2 { font-size: 2rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent); padding-left: 1rem; }
+        h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--accent-glow); }
+        p { margin-bottom: 1.5rem; color: var(--text-muted); }
+        
+        /* Layout */
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .section { margin-bottom: 4rem; padding: 2rem; background: var(--primary); border-radius: 12px; border: 1px solid var(--border); }
+        
+        /* Hero */
+        .hero { text-align: center; padding: 6rem 1rem; background: radial-gradient(circle at center, #1e293b 0%, #020617 100%); margin-bottom: 2rem; }
+        .tag { display: inline-block; background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem; border: 1px solid rgba(59, 130, 246, 0.2); }
+
+        /* Grid Layouts */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+
+        /* Cards */
+        .card { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+        .stat-number { font-size: 2.5rem; font-weight: 800; color: #fff; }
+        .stat-label { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* Table Style */
+        .tech-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .tech-table th, .tech-table td { text-align: left; padding: 1rem; border-bottom: 1px solid var(--border); }
+        .tech-table th { color: #fff; font-weight: 600; }
+        .tech-table tr:last-child td { border-bottom: none; }
+
+        /* LOCKED CONTENT OVERLAY */
+        .blur-content { filter: blur(8px); pointer-events: none; user-select: none; opacity: 0.5; transition: all 0.5s ease; }
+        .locked-section { position: relative; }
+        
+        /* SURVEY MODAL */
+        .gate-overlay {
+            position: absolute; top: 10%; left: 0; right: 0; bottom: 0;
+            z-index: 10; display: flex; justify-content: center; align-items: flex-start;
+        }
+        .survey-box {
+            background: #1e293b; border: 1px solid var(--accent); box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            padding: 2.5rem; border-radius: 16px; max-width: 500px; width: 90%; text-align: left;
+        }
+        .survey-box h3 { color: #fff; margin-bottom: 1rem; text-align: center; }
+        
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: #fff; }
+        .form-select, .form-input {
+            width: 100%; padding: 0.75rem; background: #020617; border: 1px solid var(--border);
+            color: #fff; border-radius: 6px; outline: none; font-size: 1rem;
+        }
+        .form-select:focus { border-color: var(--accent); }
+        
+        .btn-unlock {
+            width: 100%; padding: 1rem; background: var(--accent); color: #fff; border: none;
+            border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 1rem; transition: background 0.2s;
+        }
+        .btn-unlock:hover { background: var(--accent-glow); }
+
+        /* Scenarios Chips */
+        .horizon-badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .h1-badge { background: rgba(16, 185, 129, 0.2); color: #34d399; } /* Green */
+        .h2-badge { background: rgba(245, 158, 11, 0.2); color: #fbbf24; } /* Amber */
+        .h3-badge { background: rgba(239, 68, 68, 0.2); color: #f87171; } /* Red */
+
+        /* Animations */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .reveal { animation: fadeUp 0.6s ease forwards; }
+        
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <div class="container">
+            <span class="tag">Confidential Strategic Synthesis • Nov 2025</span>
+            <h1>AI × VC/PE Strategic Scenarios</h1>
+            <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem auto;">
+                From "Tool Adoption" to "Agentic Execution." A comprehensive analysis of the 2025 landscape, 20 future scenarios, and the winning tech stack.
+            </p>
+            <p style="font-size: 0.9rem; color: var(--accent-glow);">
+                Synthesizing data from Stanford HAI, Bain & Co, and the Data Driven VC Landscape 2025.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Executive Summary: The "Agentic" Shift</h2>
+            <div class="grid-2">
+                <div>
+                    <p>
+                        The Venture Capital industry is undergoing its most significant structural shift since the internet. We are moving from the <strong>"Tool Era"</strong> (humans using databases) to the <strong>"Agent Era"</strong> (AI systems executing workflows).
+                    </p>
+                    <p>
+                        The consensus is clear: <strong>94% of firms</strong> have adopted an "Augmented" model. The "Human-Only" VC is statistically irrelevant (1% market share). While sourcing is becoming crowded, the massive "white space" opportunity lies in <strong>Post-Investment Operations</strong> and <strong>PE Value Creation</strong>.
+                    </p>
+                </div>
+                <div class="card" style="border: 1px solid var(--accent);">
+                    <h3 style="text-align:center; margin-bottom: 1rem;">2025 Landscape Key Metrics</h3>
+                    <div style="display: flex; justify-content: space-around; text-align: center;">
+                        <div>
+                            <div class="stat-number">235</div>
+                            <div class="stat-label">Data-Driven VC Firms<br></div>
+                        </div>
+                        <div>
+                            <div class="stat-number">93%</div>
+                            <div class="stat-label">Cite Efficiency as<br>Primary Driver</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="locked-section" id="lockedSection">
+            
+            <div class="gate-overlay" id="surveyGate">
+                <div class="survey-box">
+                    <h3>Unlock the Full Strategic Report</h3>
+                    <p style="font-size: 0.9rem; text-align: center; margin-bottom: 1.5rem;">
+                        Participate in the 2025 Benchmarking Survey to access the deep-dive on 20 scenarios, the "Active" Tech Stack audit, and winning strategies.
+                    </p>
+                    <form id="vcSurvey">
+                        <div class="form-group">
+                            <label class="form-label">Firm Type</label>
+                            <select class="form-select" required>
+                                <option value="" disabled selected>Select...</option>
+                                <option>Early Stage VC (Seed/Series A)</option>
+                                <option>Growth Equity</option>
+                                <option>Private Equity / Buyout</option>
+                                <option>Corporate VC</option>
+                                <option>LP / Family Office</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Current "Data Stack" Maturity</label>
+                            <select class="form-select" required>
+                                <option value="" disabled selected>Select...</option>
+                                <option>Old School (Excel/Outlook only)</option>
+                                <option>Productivity (Affinity/Zapier)</option>
+                                <option>Augmented (Internal Engineering Team)</option>
+                                <option>Quant (Fully Automated)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Primary AI Focus for 2026?</label>
+                            <select class="form-select" required>
+                                <option value="" disabled selected>Select...</option>
+                                <option>Sourcing (Finding Deals)</option>
+                                <option>Screening (Automating Memos)</option>
+                                <option>Portfolio Ops (Value Creation)</option>
+                                <option>Back Office (Admin/Legal)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-unlock">Submit & Unlock Report</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="contentBody" class="blur-content">
+                
+                <div class="section">
+                    <h2>The 2025 Market Landscape</h2>
+                    <p>Based on the <em>Data Driven VC Landscape 2025</em> report, the ecosystem has bifurcated into four distinct operating models:</p>
+                    <div class="grid-2">
+                        <div class="card">
+                            <h3>1. Old-School VCs</h3>
+                            <p>Rely on manual workflows and basic tools (Salesforce, Email). <strong>Risk:</strong> Dying breed (1% share).</p>
+                        </div>
+                        <div class="card">
+                            <h3>2. Productivity VCs</h3>
+                            <p>Adopt off-the-shelf modern tools (Affinity, Notion, Zapier). Push for efficiency but lack proprietary edge.</p>
+                        </div>
+                        <div class="card" style="border-color: var(--success);">
+                            <h3>3. Augmented VCs (Winner)</h3>
+                            <p>Build <strong>in-house solutions</strong> combining data with human intuition. Use Python, Airflow, and Specter. (94% adoption).</p>
+                        </div>
+                        <div class="card">
+                            <h3>4. Quant VCs</h3>
+                            <p>Algorithmic models and autonomous agents. No human involvement in sourcing. Stack: Pinecone, PhantomBuster.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>20 Strategic Scenarios (2025-2030)</h2>
+                    <p>Synthesized from new research on Agentic AI and PE value creation.</p>
+                    
+                    <h3 style="color: #fff; margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">Horizon 1: Immediate Impact (12 Months)</h3>
+                    <div class="grid-3" style="margin-top: 1rem;">
+                        <div class="card">
+                            <span class="horizon-badge h1-badge">Efficiency</span>
+                            <h3>The "Pre-IC" Agent</h3>
+                            <p>Auto-drafts a "Pass/Fail" memo for every inbound deck before a human opens it. Reduces screening time by 50%.</p>
+                        </div>
+                        <div class="card">
+                            <span class="horizon-badge h1-badge">Private Equity</span>
+                            <h3>LBO-on-Demand</h3>
+                            <p>Associates use LLMs to ingest messy CIM PDFs and output fully linked, sensitized Excel models in 20 minutes.</p>
+                        </div>
+                        <div class="card">
+                            <span class="horizon-badge h1-badge">Operations</span>
+                            <h3>Portfolio "Smoke Alarms"</h3>
+                            <p>Direct API hooks (Standard Metrics) trigger alerts on burn rate deviations, replacing monthly PDF updates.</p>
+                        </div>
+                    </div>
+
+                    <h3 style="color: #fff; margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">Horizon 2: Competitive Disruption (3 Years)</h3>
+                    <div class="grid-3" style="margin-top: 1rem;">
+                        <div class="card">
+                            <span class="horizon-badge h2-badge">Sourcing</span>
+                            <h3>The "Silent Scout"</h3>
+                            <p>Agents in Discord/GitHub track code commits to identify breakout projects 6 months before incorporation.</p>
+                        </div>
+                        <div class="card">
+                            <span class="horizon-badge h2-badge">Diligence</span>
+                            <h3>DD-as-a-Service</h3>
+                            <p>A "Red Team" AI swarm (Legal-Bot, Tech-Bot, Market-Bot) tears apart an investment thesis to find risks humans missed.</p>
+                        </div>
+                        <div class="card">
+                            <span class="horizon-badge h2-badge">Disruption</span>
+                            <h3>Algorithmic Pricing</h3>
+                            <p>"Valuation Agents" predict round clearing prices instantly. VCs offer the "Market Price" with zero negotiation to win.</p>
+                        </div>
+                    </div>
+
+                    <h3 style="color: #fff; margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">Horizon 3: Paradigm Shifts (5 Years)</h3>
+                    <div class="grid-3" style="margin-top: 1rem;">
+                        <div class="card">
+                            <span class="horizon-badge h3-badge">Structure</span>
+                            <h3>The "Self-Driving" Fund</h3>
+                            <p>Micro-VCs with zero employees. A GP sets the thesis; the agent stack handles sourcing, legal, and wiring.</p>
+                        </div>
+                        <div class="card">
+                            <span class="horizon-badge h3-badge">Governance</span>
+                            <h3>The "Synthetic" Board Member</h3>
+                            <p>AI observers with fiduciary duties monitor company performance 24/7, legally mandated to flag risks.</p>
+                        </div>
+                        <div class="card">
+                            <span class="horizon-badge h3-badge">Assets</span>
+                            <h3>Post-Labor PE</h3>
+                            <p>Firms acquire service businesses solely to replace 90% of staff with agents, flipping margins from 15% to 80%.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Tech Stack Audit: Moving from "Passive" to "Active"</h2>
+                    <p>Analysis of 495 tools reveals a massive gap. Most firms use "Passive" tools. The winners are moving to "Active" Agents.</p>
+                    
+                    <table class="tech-table">
+                        <thead>
+                            <tr style="background: rgba(255,255,255,0.05);">
+                                <th>Capability</th>
+                                <th>Current State (Passive)</th>
+                                <th>Future State (Active Agents)</th>
+                                <th>Recommended Tool</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Sourcing</strong></td>
+                                <td>Searching Databases (Crunchbase)</td>
+                                <td><strong>Signal Agents</strong> (Auto-discovery)</td>
+                                <td><span style="color:var(--accent)">Specter, Harmonic, Offdeal</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Workflow</strong></td>
+                                <td>Linear Triggers (Zapier)</td>
+                                <td><strong>Logic Agents</strong> (Reasoning)</td>
+                                <td><span style="color:var(--accent)">Clay, n8n, LangChain</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>CRM</strong></td>
+                                <td>Rolodex (Salesforce)</td>
+                                <td><strong>Network Graph</strong> (Intel)</td>
+                                <td><span style="color:var(--accent)">Affinity, Attio, Folk</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Diligence</strong></td>
+                                <td>Google Search</td>
+                                <td><strong>Synthesis Agents</strong></td>
+                                <td><span style="color:var(--accent)">Perplexity Ent, Hebbia</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h2>Strategic "Sweet Spots" to Play</h2>
+                    <div class="grid-2">
+                        <div class="card" style="background: linear-gradient(145deg, #1e293b, #0f172a);">
+                            <h3 style="color:var(--success)">1. The "Data-First" Predator</h3>
+                            <p><strong>Thesis:</strong> "I don't need to meet you to know you're winning."</p>
+                            <p><strong>Play:</strong> Stop reading decks. Build a proprietary "Signal Engine" using alternative data (GitHub stars, traffic, credit card data).</p>
+                        </div>
+                        <div class="card" style="background: linear-gradient(145deg, #1e293b, #0f172a);">
+                            <h3 style="color:var(--accent)">2. The "Ops-Platform" Scaler (PE)</h3>
+                            <p><strong>Thesis:</strong> "I can fix your margins with code."</p>
+                            <p><strong>Play:</strong> Acquire low-tech, high-cash-flow businesses and deploy a "Company-in-a-Box" AI stack to automate 70% of the work.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align:center; padding: 2rem; color: var(--text-muted);">
+                    <p>— End of Confidential Report —</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('vcSurvey').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = this.querySelector('.btn-unlock');
+            const originalText = btn.innerText;
+            
+            // Simulate processing
+            btn.innerText = "Analyzing Benchmark Data...";
+            btn.style.opacity = "0.8";
+            
+            setTimeout(() => {
+                // Unlock
+                document.getElementById('surveyGate').classList.add('hidden');
+                const content = document.getElementById('contentBody');
+                
+                content.classList.remove('blur-content');
+                content.classList.add('reveal');
+                
+                // Scroll to top of unlocked content
+                content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 1500);
+        });
+    </script>
+
+</body>
+</html>
